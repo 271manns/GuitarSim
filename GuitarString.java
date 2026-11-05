@@ -11,7 +11,8 @@ public class GuitarString
     public GuitarString(double frequency) 
     {
         guitar = new RingBuffer((int)(44100/frequency));
-        for(int i = 0; i<guitar.size(); i++)
+        int capacity = (int)(44100/frequency);
+        for(int i = 0; i<capacity; i++)
         {
             guitar.add(0);
         }
@@ -37,8 +38,7 @@ public class GuitarString
         }
         for(int i = 0; i<capacity; i++)
         {
-            int ran = (int)((int)(Math.random()) -0.5);
-            guitar.add(ran);
+            guitar.add(Math.random() - 0.5);
         }
     }
 
